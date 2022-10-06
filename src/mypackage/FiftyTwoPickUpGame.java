@@ -87,102 +87,94 @@ public class FiftyTwoPickUpGame {
 
 
     public void display() {
-
+        int header = 0;
+        int color = 0;
+        int value = 0;
+        int footer = 0;
+        int count = 0;
+        boolean onOff = true;
         for (int j = 0; j < playerHand.getHand().length; j += 13) {
-            boolean onOff = true;
-
-            while (onOff) {
 
                 for (int i = 0; i < playerHand.getHand().length; i++) {
-                    if (playerHand.getHand()[i] == null)
+
+                    if (playerHand.getHand()[header] == null)
                         System.out.print("      \t");
                     else
                         System.out.print(" -----\t");
-                    // Passe à l'autre ligne d'impression.
-//                    if (i == playerHand.getHand().length - 1)
-//                        System.out.println();
-                    if ((i + 1) % 13 == 0) {
 
+                    if ((i+1) % 13 == 0) {
                         System.out.println();
+                        header++;
+                        break;
                     }
-                    onOff = false;
+                    header++;
                 }
-            }
-            onOff = true;
-            while (onOff) {
+
                 for (int i = 0; i < playerHand.getHand().length; i++) {
-                    if (playerHand.getHand()[i] == null)
+
+                    if (playerHand.getHand()[value] == null)
                         System.out.print("      \t");
-                    else
-                        System.out.print("   " + playerHand.showCardValue(playerHand.getHand()[i]) + "   \t");
-                    // Passe à l'autre ligne d'impression.
-//                    if (i == playerHand.getHand().length - 1)
-//                        System.out.println();
-                    if ((i + 1) % 13 == 0) {
-                        onOff = false;
-                        System.out.println();
-
+                    else {
+                        System.out.print("   " + playerHand.showCardValue(playerHand.getHand()[value]) + "   \t");
                     }
+
+                    if ((i+1) % 13 == 0) {
+                        System.out.println();
+                        value++;
+                        break;
+                    }
+                    value++;
                 }
-            }
-            onOff = true;
-            while (onOff) {
+
                 for (int i = 0; i < playerHand.getHand().length; i++) {
-                    if (playerHand.getHand()[i] == null)
+
+                    if (playerHand.getHand()[color] == null)
                         System.out.print("      \t");
-                    else
-                        System.out.print("   " + playerHand.showCardColor(playerHand.getHand()[i]) + "   \t");
-                    // Passe à l'autre ligne d'impression.
-//                    if (i == playerHand.getHand().length - 1)
-//                        System.out.println();
-                    if ((i + 1) % 13 == 0) {
-                        onOff = false;
-                        System.out.println();
-
+                    else {
+                        System.out.print("   " + playerHand.showCardColor(playerHand.getHand()[color]) + "   \t");
                     }
+
+                    if ((i+1) % 13 == 0) {
+                        System.out.println();
+                        color++;
+                        break;
+                    }
+                    color++;
                 }
-            }
-            onOff = true;
-            while (onOff) {
+
                 for (int i = 0; i < playerHand.getHand().length; i++) {
-                    if (playerHand.getHand()[i] == null)
+                    if (playerHand.getHand()[footer] == null)
                         System.out.print("      \t");
                     else
                         System.out.print(" -----\t");
-                    // Passe à l'autre ligne d'impression.
-//                    if (i == playerHand.getHand().length - 1)
-//                        System.out.println();
-                    if ((i + 1) % 13 == 0) {
-                        onOff = false;
-                        System.out.println();
 
+                    if ((i+1) % 13 == 0) {
+                        System.out.println();
+                        footer++;
+                        break;
                     }
+                    footer++;
                 }
-            }
-            onOff = true;
-            while (onOff) {
+
                 for (int i = 0; i < playerHand.getHand().length; i++) {
 
-                    if (playerHand.getHand()[i] == null)
+                    if (playerHand.getHand()[count] == null)
                         System.out.print("      \t");
-                    if (playerHand.getHand()[i] != null) {
-//                System.out.print("");
-                        if (i >= 9)
-                            System.out.print("   " + (i + 1) + "   ");
+                    if (playerHand.getHand()[count] != null) {
+
+                        if (count >= 9)
+                            System.out.print("   " + (count+1) + "   ");
                         else
-                            System.out.print("   " + (i + 1) + "    ");
+                            System.out.print("   " + (count+1) + "    ");
                     }
-                    // Passe à l'autre ligne d'impression.
-//                    if (i == playerHand.getHand().length - 1)
-//                        System.out.println();
-                    if ((i + 1) % 13 == 0) {
-                        onOff = false;
-                        System.out.println();
 
+                    if ((i+1) % 13 == 0) {
+                        System.out.println("\n");
+                        count++;
+                        break;
                     }
+                    count++;
                 }
-            }
-
         }
     }
 
