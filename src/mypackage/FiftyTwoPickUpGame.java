@@ -183,11 +183,11 @@ public class FiftyTwoPickUpGame {
 
     private void playerWin() {
         System.out.println("\n\t !!! Congrats you got them all !!! Your are very patient and very brave !!!\n");
-        System.out.println("\t\t\t\t\t\t\t\t\t---------  ");
-        System.out.println("\t\t\t\t\t\t\t\t\t  ♦ ♦ ♦     ");
-        System.out.println("\t\t\t\t\t\t\t\t\t  ♦ ♥ ♦      ");
-        System.out.println("\t\t\t\t\t\t\t\t\t  ♦ ♦ ♦     ");
-        System.out.println("\t\t\t\t\t\t\t\t\t---------\n");
+        Console.superTab("---------");
+        Console.superTab("  ♦ ♦ ♦  ");
+        Console.superTab("  ♦ ♥ ♦  ");
+        Console.superTab("  ♦ ♦ ♦  ");
+        Console.superTab("---------\n");
     }
 
     private void getChrono() {
