@@ -1,6 +1,7 @@
 package mypackage;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FiftyTwoPickUpGame {
@@ -36,7 +37,6 @@ public class FiftyTwoPickUpGame {
 
 
             } else {
-
                 this.deck = new Deck();
                 this.playerHand = new Hand("PLAYER", 52);
                 deal();
@@ -45,7 +45,6 @@ public class FiftyTwoPickUpGame {
                     display();
                     pickCard();
                     cardsLeft();
-
                 }
                 playerWin();
             }
@@ -55,7 +54,7 @@ public class FiftyTwoPickUpGame {
         }
     }
 
-    public void pickCard() {
+    private void pickCard() {
         int num = 0;
         while (num <= 0 || num > 52) {
             try {
@@ -72,7 +71,7 @@ public class FiftyTwoPickUpGame {
         }
     }
 
-    public void deal() {
+    private void deal() {
         for (int i = 0; i < playerHand.getHand().length; i++) {
             playerHand.addCard(deck.drawCard());
         }
@@ -86,7 +85,7 @@ public class FiftyTwoPickUpGame {
     }
 
 
-    public void display() {
+    private void display() {
         int header = 0;
         int color = 0;
         int value = 0;
@@ -182,7 +181,7 @@ public class FiftyTwoPickUpGame {
         System.out.println("\n\t !!! Congrats you got them all !!! Your are very patient and very brave !!!");
     }
 
-    public void getChrono() {
+    private void getChrono() {
 //        long numberOfDays = sw.getElapsedTimeSecs() / 86400;
 //        long numberOfHours = (sw.getElapsedTimeSecs() % 86400) / 3600;
         long numberOfMinutes = ((sw.getElapsedTimeSecs() % 86400) % 3600) / 60;
@@ -196,18 +195,28 @@ public class FiftyTwoPickUpGame {
             System.out.println("\tIt took you " + numberOfMinutes + " minutes and " + numberOfSeconds + " seconds to put back the deck together !!! Can you do better !?!");
     }
 
-    public int setMode() {
-        int choice;
+    private int setMode() {
+        int choice = 0;
+
         do {
-            System.out.println("\n\t********************** SET MODE **********************");
-            System.out.println("\t*    1- E-SPORT MODE - can you be the fastest?       *");
-            System.out.println("\t*    2-  CHILL MODE  - no timer, just chill...       *");
-            System.out.println("\t******************************************************");
-            System.out.println();
-            System.out.print("Select mode (1 or 2) : ");
-            choice = Integer.parseInt(sc.nextLine());
+            try {
+                System.out.println("\n\t********************** SET MODE **********************");
+                System.out.println("\t*    1- E-SPORT MODE - can you be the fastest?       *");
+                System.out.println("\t*    2-  CHILL MODE  - no timer, just chill...       *");
+                System.out.println("\t******************************************************");
+                System.out.println();
+                System.out.print("Select mode (1 or 2) : ");
+                choice = Integer.parseInt(sc.nextLine());
+                if (choice < 1 || choice > 2){
+                    throw new InputMismatchException();
+                }
+            }catch (NumberFormatException e){
+                System.out.println("\nInput a number! 1 or 2.");
+            }
+            catch (InputMismatchException e) {
+                System.out.println("\nChoose number 1 for E-Sport Mode or choose number 2 for chill mode.");
+            }
         } while (choice < 1 || choice > 2);
         return choice;
-
     }
 }
