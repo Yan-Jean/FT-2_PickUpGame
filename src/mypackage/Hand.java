@@ -1,4 +1,5 @@
 package mypackage;
+
 import java.util.Arrays;
 
 public class Hand {
@@ -41,13 +42,5 @@ public class Hand {
         return card.getColor();
     }
 
-
-
-    @Override
-    public String toString() {
-        return "Hand{" +
-                "hand=" + Arrays.toString(hand) +
-                '}';
-    }
 }
 

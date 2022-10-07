@@ -22,25 +22,24 @@ public class Deck {
         }
         shuffleDeck();
     }
+
     public Card getRandomCard() {
         int i = (int) (Math.random() * 52);
         return deck[i];
     }
 
 
-
     private void shuffleDeck() {
         Collections.shuffle(Arrays.asList(deck));
     }
 
-    public Card drawCard () {
+    public Card drawCard() {
         if (currentCardIndex == 51) {
             Card lastCard = deck[currentCardIndex];
             shuffleDeck();
             currentCardIndex = 0;
             return lastCard;
-        }
-        else {
+        } else {
             return deck[currentCardIndex++];
         }
     }

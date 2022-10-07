@@ -27,9 +27,10 @@ public class FiftyTwoPickUpGame {
                 sw.start();
                 for (int i = 0; i < playerHand.getHand().length; i++) {
                     System.out.println("\n!!! SPORT MODE !!! HURRY UP !!!\n");
+                    cardsLeft();
                     display();
                     pickCard();
-                    cardsLeft();
+
                 }
                 sw.stop();
                 playerWin();
@@ -81,7 +82,11 @@ public class FiftyTwoPickUpGame {
         if (numOfCardsLeft == 0) {
             numOfCardsLeft = 52;
         }
-        System.out.println("\n\t" + --numOfCardsLeft + " more cards to pick up!");
+        if (numOfCardsLeft == 1)
+            System.out.println("Only 1 card left, keep up the good work!");
+        else
+            System.out.println("\t" + numOfCardsLeft-- + " more cards to pick up!\n");
+
     }
 
 
@@ -91,94 +96,98 @@ public class FiftyTwoPickUpGame {
         int value = 0;
         int footer = 0;
         int count = 0;
-        boolean onOff = true;
         for (int j = 0; j < playerHand.getHand().length; j += 13) {
 
-                for (int i = 0; i < playerHand.getHand().length; i++) {
+            for (int i = 0; i < playerHand.getHand().length; i++) {
 
-                    if (playerHand.getHand()[header] == null)
-                        System.out.print("      \t");
-                    else
-                        System.out.print(" -----\t");
+                if (playerHand.getHand()[header] == null)
+                    System.out.print("      \t");
+                else
+                    System.out.print(" -----\t");
 
-                    if ((i+1) % 13 == 0) {
-                        System.out.println();
-                        header++;
-                        break;
-                    }
+                if ((i + 1) % 13 == 0) {
+                    System.out.println();
                     header++;
+                    break;
+                }
+                header++;
+            }
+
+            for (int i = 0; i < playerHand.getHand().length; i++) {
+
+                if (playerHand.getHand()[value] == null)
+                    System.out.print("      \t");
+                else {
+                    System.out.print("   " + playerHand.showCardValue(playerHand.getHand()[value]) + "   \t");
                 }
 
-                for (int i = 0; i < playerHand.getHand().length; i++) {
-
-                    if (playerHand.getHand()[value] == null)
-                        System.out.print("      \t");
-                    else {
-                        System.out.print("   " + playerHand.showCardValue(playerHand.getHand()[value]) + "   \t");
-                    }
-
-                    if ((i+1) % 13 == 0) {
-                        System.out.println();
-                        value++;
-                        break;
-                    }
+                if ((i + 1) % 13 == 0) {
+                    System.out.println();
                     value++;
+                    break;
+                }
+                value++;
+            }
+
+            for (int i = 0; i < playerHand.getHand().length; i++) {
+
+                if (playerHand.getHand()[color] == null)
+                    System.out.print("      \t");
+                else {
+                    System.out.print("   " + playerHand.showCardColor(playerHand.getHand()[color]) + "   \t");
                 }
 
-                for (int i = 0; i < playerHand.getHand().length; i++) {
-
-                    if (playerHand.getHand()[color] == null)
-                        System.out.print("      \t");
-                    else {
-                        System.out.print("   " + playerHand.showCardColor(playerHand.getHand()[color]) + "   \t");
-                    }
-
-                    if ((i+1) % 13 == 0) {
-                        System.out.println();
-                        color++;
-                        break;
-                    }
+                if ((i + 1) % 13 == 0) {
+                    System.out.println();
                     color++;
+                    break;
                 }
+                color++;
+            }
 
-                for (int i = 0; i < playerHand.getHand().length; i++) {
-                    if (playerHand.getHand()[footer] == null)
-                        System.out.print("      \t");
-                    else
-                        System.out.print(" -----\t");
+            for (int i = 0; i < playerHand.getHand().length; i++) {
+                if (playerHand.getHand()[footer] == null)
+                    System.out.print("      \t");
+                else
+                    System.out.print(" -----\t");
 
-                    if ((i+1) % 13 == 0) {
-                        System.out.println();
-                        footer++;
-                        break;
-                    }
+                if ((i + 1) % 13 == 0) {
+                    System.out.println();
                     footer++;
+                    break;
+                }
+                footer++;
+            }
+
+            for (int i = 0; i < playerHand.getHand().length; i++) {
+
+                if (playerHand.getHand()[count] == null)
+                    System.out.print("      \t");
+                if (playerHand.getHand()[count] != null) {
+
+                    if (count >= 9)
+                        System.out.print("   " + (count + 1) + "   ");
+                    else
+                        System.out.print("   " + (count + 1) + "    ");
                 }
 
-                for (int i = 0; i < playerHand.getHand().length; i++) {
-
-                    if (playerHand.getHand()[count] == null)
-                        System.out.print("      \t");
-                    if (playerHand.getHand()[count] != null) {
-
-                        if (count >= 9)
-                            System.out.print("   " + (count+1) + "   ");
-                        else
-                            System.out.print("   " + (count+1) + "    ");
-                    }
-
-                    if ((i+1) % 13 == 0) {
-                        System.out.println("\n");
-                        count++;
-                        break;
-                    }
+                if ((i + 1) % 13 == 0) {
+                    System.out.println("\n");
                     count++;
+                    break;
                 }
+                count++;
+            }
         }
     }
 
     private void playerWin() {
-        System.out.println("\n\t !!! Congrats you got them all !!! Your are very patient and very brave !!!");
+        System.out.println("\n\t !!! Congrats you got them all !!! Your are very patient and very brave !!!\n");
+        System.out.println("\t\t\t\t\t\t\t\t\t---------  ");
+        System.out.println("\t\t\t\t\t\t\t\t\t  ♦ ♦ ♦     ");
+        System.out.println("\t\t\t\t\t\t\t\t\t  ♦ ♥ ♦      ");
+        System.out.println("\t\t\t\t\t\t\t\t\t  ♦ ♦ ♦     ");
+        System.out.println("\t\t\t\t\t\t\t\t\t---------\n");
     }
 
     private void getChrono() {
@@ -196,8 +205,9 @@ public class FiftyTwoPickUpGame {
     }
 
     private int setMode() {
-        int choice = 0;
-
+        String choice = "";
+//        String cheatCode = Integer.toString(choice);
+        int parseChoice = 0;
         do {
             try {
                 System.out.println("\n\t********************** SET MODE **********************");
@@ -206,17 +216,21 @@ public class FiftyTwoPickUpGame {
                 System.out.println("\t******************************************************");
                 System.out.println();
                 System.out.print("Select mode (1 or 2) : ");
-                choice = Integer.parseInt(sc.nextLine());
-                if (choice < 1 || choice > 2){
+                if (choice.equals("clear")){
+                    playerWin();
+                    getChrono();
+                }
+                choice = sc.nextLine();
+                parseChoice = Integer.parseInt(choice);
+                if (parseChoice < 1 || parseChoice > 2) {
                     throw new InputMismatchException();
                 }
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("\nInput a number! 1 or 2.");
+            } catch (InputMismatchException e) {
+                System.out.println("\nChoose number! 1 for E-Sport Mode or choose number 2 for Chill Mode.");
             }
-            catch (InputMismatchException e) {
-                System.out.println("\nChoose number 1 for E-Sport Mode or choose number 2 for chill mode.");
-            }
-        } while (choice < 1 || choice > 2);
-        return choice;
+        } while (parseChoice < 1 || parseChoice > 2);
+        return parseChoice;
     }
 }

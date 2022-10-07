@@ -1,4 +1,5 @@
 package mypackage;
+
 import java.util.Objects;
 
 public class Card {
@@ -15,10 +16,6 @@ public class Card {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public String getValue() {
         return value;
     }
@@ -26,16 +23,6 @@ public class Card {
     public void setValue(String value) {
         this.value = value;
     }
-
-    //    @Override
-//    public String toString() {
-//        if (Objects.equals(value, "As"))
-//            return "La carte tirée est l'" + value + " de " + color;
-//        else if (Objects.equals(value,"Reine"))
-//            return "La carte tirée est la " + value + " de " + color;
-//        else
-//        return "La carte tirée est le " + value + " de " + color;
-//    }
 
     @Override
     public String toString() {
