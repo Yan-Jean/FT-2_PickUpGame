@@ -1,6 +1,5 @@
 package mypackage;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -33,7 +32,7 @@ public class FiftyTwoPickUpGame {
 
                 }
                 sw.stop();
-                playerWin();
+                Console.playerWin();
                 getChrono();
 
 
@@ -47,7 +46,7 @@ public class FiftyTwoPickUpGame {
                     pickCard();
                     cardsLeft();
                 }
-                playerWin();
+                Console.playerWin();
             }
 
             System.out.print("\nPlay again? (y,n) ");
@@ -181,14 +180,14 @@ public class FiftyTwoPickUpGame {
         }
     }
 
-    private void playerWin() {
-        System.out.println("\n\t !!! Congrats you got them all !!! Your are very patient and very brave !!!\n");
-        Console.superTab("---------");
-        Console.superTab("  ♦ ♦ ♦  ");
-        Console.superTab("  ♦ ♥ ♦  ");
-        Console.superTab("  ♦ ♦ ♦  ");
-        Console.superTab("---------\n");
-    }
+//    private void playerWin() {
+//        System.out.println("\n\t !!! Congrats you got them all !!! Your are very patient and very brave !!!\n");
+//        Console.superTab("---------");
+//        Console.superTab("  ♦ ♦ ♦  ");
+//        Console.superTab("  ♦ ♥ ♦  ");
+//        Console.superTab("  ♦ ♦ ♦  ");
+//        Console.superTab("---------\n");
+//    }
 
     private void getChrono() {
 //        long numberOfDays = sw.getElapsedTimeSecs() / 86400;
@@ -217,7 +216,7 @@ public class FiftyTwoPickUpGame {
                 System.out.println();
                 System.out.print("Select mode (1 or 2) : ");
                 if (choice.equals("clear")){
-                    playerWin();
+                    Console.playerWin();
                     getChrono();
                 }
                 choice = sc.nextLine();
